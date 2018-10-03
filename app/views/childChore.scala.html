@@ -1,0 +1,90 @@
+@(chores : List[Chores], children : List[Child] )
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Child Chore</title>
+
+    <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+    <script src="/assets/lib/jquery/jquery.min.js"></script>
+    <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+
+<body class="bg-primary">>
+<div class="container-fluid">
+    <div class="jumbotron">
+        <h2 class="text-center">Let's get to WORK!</h2>
+        <br>
+        <div class="text-center">
+            <img src="assets/images/kidchores.jpg" alt="kidchores" title="kidchores" height="200" width="350"
+                 class="rounded-circle"/>
+            <form method="POST" enctype="multipart/form-data">
+                @helper.CSRF.formField
+                <div class="row">
+                    <div class="col-3">
+                        <div class="row">
+                            <label for="dateassigned">Assigned Date: </label>
+                            <input type="date" class="form-control" id="dateassigned" name="dateassigned">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-4">
+                        <label for="chores">Assigned Chore: </label>
+                        <select class="form-control" id="chores" name="chores">
+                            @for(chore <-chores){
+
+                            <option value="@chore.getChoreId">@chore.getChoreName</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-8">
+                <p> Did your kiddo finish this task?</p>
+                <input type="checkbox" name="taskCompletion"
+                       value="Yes" checked="checked"/> Yes they did!
+                <input type="checkbox" name="taskCompletion"
+                       value="No"/> No, they didn't..
+                <br>
+
+                <br>
+
+                <div class="row">
+
+                    <label for="childName">Name of Child: </label>
+                    <select class="form-control" id="childName" name="childName">
+                        @for(child <-children){
+
+                        <option value="@child.getChildId">@child.getFirstName @child.getLastName</option>
+
+                        }
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <br>
+                        <br>
+                        <a href="@routes.ChildController.getChildDetails" class="btn btn-warning btn-block">Child
+                            Details Page</a>
+                        <br>
+                        <br>
+                        <div class="col-8">
+                            <input type="submit" class="btn btn-info btn-block" value="Save">
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+

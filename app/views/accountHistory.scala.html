@@ -1,0 +1,105 @@
+@(child : Child, goodDeeds : List[DepositType], misbehaviors : List[WithdrawalType])
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Child</title>
+
+    <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+    <script src="/assets/lib/jquery/jquery.min.js"></script>
+    <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+
+<body class="bg-primary">
+<div class="container">
+    <div class="jumbotron">
+        <h2>Account History and Edit Page</h2>
+        <br>
+        <form method="POST" enctype="multipart/form-data">
+            @helper.CSRF.formField
+            <div class="row">
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <table>
+                                    <tr>
+                                        <th>Good Deeds:</th>
+                                    </tr>
+                                    @for(goodDeed <- goodDeeds){
+                                    <tr>
+                                        <td>@goodDeed.getGoodDeed</td>
+                                    </tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="gooddeeddescription">Good Deed Description: </label>
+                                <input type="text" class="form-control" id="gooddeeddescription"
+                                       name="gooddeeddescription">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="gooddeeddate">Date of Deed: </label>
+                                <input type="date" class="form-control" id="gooddeeddate" name="gooddeeddate">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <table>
+                                    <tr>
+                                        <th>Misbehavior:</th>
+                                    </tr>
+                                    @for(misbehavior <- misbehaviors){
+                                    <tr>
+                                        <td>@misbehavior.getMisbehavior()</td>
+                                    </tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="misbehaviordescription">Misbehavior Description: </label>
+                            <select class="form-control" id="misbehaviordescription"
+                                    name="misbehaviordescription"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="misbehaviordate">Date of Misbehavior: </label>
+                        <input type="date" class="form-control" id="misbehaviordate" name="misbehaviordate">
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group">
+                    <label for="currentAccountBalance">Current Account Balance: </label>
+                    <input type="text" class="form-control" id="currentAccountBalance" name="currentAccountBalance"
+                           value="@child.getCurrentAccountBalance">
+                </div>
+            </div>
+        </form>
+    </div>
+    <br>
+    <br>
+</div>
+<input type="submit" class="btn btn-warning btn-block" value="Save">
+
+</div>
+</div>
+</body>
+</html>
+

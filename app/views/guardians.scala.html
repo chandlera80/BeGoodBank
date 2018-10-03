@@ -1,0 +1,40 @@
+@(guardians : List[Guardian])
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees</title>
+    <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+    <script src="/assets/lib/jquery/jquery.min.js"></script>
+    <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1> Child Guardians</h1>
+        <form>
+            <input id="searchname"name="searchname" type ="text" placeholder="Guardian Name">
+            <input type="submit" value="search">
+        </form>
+        <table>
+            <tr>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Relationship to Child</th>
+
+
+
+
+            </tr>
+            @for(guardian <- guardians){
+            <tr>
+                <td>@guardian.getLastName</td>
+                <td>@guardian.getFirstName</td>
+                <td>@guardian.getRelationshipToChild</td>
+            </tr>
+            }
+        </table>
+</body>
+</html></html>

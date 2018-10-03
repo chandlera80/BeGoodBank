@@ -12,6 +12,18 @@ public class Child
     private String lastName;
     private String firstName;
     private BigDecimal currentAccountBalance;
+    private int guardianId;
+
+    public int getGuardianId()
+    {
+        return guardianId;
+    }
+
+    public void setGuardianId(int guardianId)
+    {
+        this.guardianId = guardianId;
+    }
+
 
     public int getChildId()
     {
@@ -53,11 +65,5 @@ public class Child
         this.currentAccountBalance = currentAccountBalance;
     }
 
-    public Child(int childId, String lastName, String firstName, BigDecimal currentAccountBalance)
-    {
-        this.childId = childId;
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.currentAccountBalance = currentAccountBalance;
-    }
+
 }

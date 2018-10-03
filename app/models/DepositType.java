@@ -14,7 +14,6 @@ public class DepositType
     private String goodDeedDescription;
     private Date dateOfDeed;
     private BigDecimal amountDesposited;
-    private boolean behavioralObjective;
 
     public int getDepositTypeId()
     {
@@ -66,23 +65,5 @@ public class DepositType
         this.amountDesposited = amountDesposited;
     }
 
-    public boolean isBehavioralObjective()
-    {
-        return behavioralObjective;
     }
 
-    public void setBehavioralObjective(boolean behavioralObjective)
-    {
-        this.behavioralObjective = behavioralObjective;
-    }
-
-    public DepositType(int depositTypeId, String goodDeed, String goodDeedDescription, Date dateOfDeed, BigDecimal amountDesposited, boolean behavioralObjective)
-    {
-        this.depositTypeId = depositTypeId;
-        this.goodDeed = goodDeed;
-        this.goodDeedDescription = goodDeedDescription;
-        this.dateOfDeed = dateOfDeed;
-        this.amountDesposited = amountDesposited;
-        this.behavioralObjective = behavioralObjective;
-    }
-}

@@ -11,7 +11,6 @@ public class Chores
     @Id
     private int choreId;
     private String choreName;
-    private Boolean taskCompletion;
 
     public int getChoreId()
     {
@@ -33,20 +32,7 @@ public class Chores
         this.choreName = choreName;
     }
 
-    public Boolean getTaskCompletion()
-    {
-        return taskCompletion;
-    }
 
-    public void setTaskCompletion(Boolean taskCompletion)
-    {
-        this.taskCompletion = taskCompletion;
-    }
 
-    public Chores(int choreId, String choreName, Boolean taskCompletion)
-    {
-        this.choreId = choreId;
-        this.choreName = choreName;
-        this.taskCompletion = taskCompletion;
-    }
+
 }

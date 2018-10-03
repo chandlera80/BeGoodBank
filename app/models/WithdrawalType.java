@@ -14,7 +14,6 @@ public class WithdrawalType
     private String misbehaviorDescription;
     private Date misbehaviorDate;
     private BigDecimal amountWithdrawn;
-    private boolean undesiredBehavior;
 
     public int getWithdrawalTypeId()
     {
@@ -66,23 +65,14 @@ public class WithdrawalType
         this.amountWithdrawn = amountWithdrawn;
     }
 
-    public boolean isUndesiredBehavior()
-    {
-        return undesiredBehavior;
-    }
 
-    public void setUndesiredBehavior(boolean undesiredBehavior)
-    {
-        this.undesiredBehavior = undesiredBehavior;
-    }
-
-    public WithdrawalType(int withdrawalTypeId, String misbehavior, String misbehaviorDescription, Date misbehaviorDate, BigDecimal amountWithdrawn, boolean undesiredBehavior)
+    public WithdrawalType(int withdrawalTypeId, String misbehavior, String misbehaviorDescription, Date misbehaviorDate, BigDecimal amountWithdrawn)
     {
         this.withdrawalTypeId = withdrawalTypeId;
         this.misbehavior = misbehavior;
         this.misbehaviorDescription = misbehaviorDescription;
         this.misbehaviorDate = misbehaviorDate;
         this.amountWithdrawn = amountWithdrawn;
-        this.undesiredBehavior = undesiredBehavior;
+
     }
 }

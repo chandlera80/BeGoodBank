@@ -1,13 +1,15 @@
 package models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Guardian
 {
 
-   @Id
+   @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
    int guardianId;
    private String firstName;
    private String lastName;
@@ -53,11 +55,5 @@ public class Guardian
         this.relationshipToChild = relationshipToChild;
     }
 
-    public Guardian(int guardianId, String firstName, String lastName, String relationshipToChild)
-    {
-        this.guardianId = guardianId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.relationshipToChild = relationshipToChild;
-    }
+
 }

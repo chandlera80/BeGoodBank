@@ -1,0 +1,41 @@
+@(childDetails : List [ChildDetail])
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Child Details</title>
+
+    <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+    <script src="/assets/lib/jquery/jquery.min.js"></script>
+    <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <h4 class="text-center">Child Detail Page</h4>
+    </div>
+<table class="table table-striped">
+    <tr>
+        <th>Child First Name</th>
+        <th class="text-center">Child Last Name</th>
+        <th class="text-center">Current Account Balance</th>
+        <th class="text-center"> Guardian First Name</th>
+        <th class="text-center">Guardian Last Name</th>
+        <th class="text-center">Relationship to Child</th>
+
+    </tr>
+    @for(childDetail <-childDetails){
+    <tr>
+        <td><a href="/editChild/@childDetail.getChildId">@childDetail.getFirstName<a/>
+        <td class="text-center"> @childDetail.getLastName</td>
+        <td class="text-center"> @childDetail.getCurrentAccountBalance</td>
+        <td class="text-center"> @childDetail.getGuardianFirstName</td>
+        <td class="text-center"> @childDetail.getGuardianLastName</td>
+        <td class="text-center"> @childDetail.getRelationshipToChild</td>
+    </tr>
+    }
+</table>
+    </div>
+</body>
+</html>

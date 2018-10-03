@@ -1,0 +1,38 @@
+@(chores : List[Chores])
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chores</title>
+
+    <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+    <script src="/assets/lib/jquery/jquery.min.js"></script>
+    <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="text-center text-secondary">
+            The most<b> AWESOME</b> list of chores!
+
+            <img src="assets/images/chores.jpg" alt="chores" title="chores" height="300" width="500"/>
+            <table class="table table-striped">
+                <tr>
+
+                    <th> Id</th>
+                    <th>Chore to do:</th>
+                </tr>
+                @for(chores <- chores) {
+                <tr>
+                    <td> @chores.getChoreId()</td>
+                    <td>@chores.getChoreName()</td>
+                </tr>
+                }
+            </table>
+        </h1>
+
+
+</body>
+</html>
