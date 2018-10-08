@@ -1,0 +1,31 @@
+h1 {
+font-size:80px;
+font-family:"cursive";
+font-weight: bold;
+color:#cf161e;
+}
+h4 {
+font-size:45px;
+font-family:"Goudy Old Style";
+font-weight: italic;
+color:##5654f7;
+}
+
+
+
+
+.test {
+font-size:20px;
+font-family:"cursive";
+color:#5654f7;
+}
+
+.test2 {
+font-family:"Goudy Bookletter 1911";
+font-size:25px;
+color:#cf161e;
+}
+body  {
+   background-image: url("/assets/images/light.jpg");
+   background-size: 100%;
+}

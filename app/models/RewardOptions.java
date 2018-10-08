@@ -12,7 +12,7 @@ public class RewardOptions
     private String rewardType;
     private BigDecimal rewardCost;
     private String rewardDescription;
-    private byte rewardPicture;
+    private String rewardPicture;
 
     public int getRewardOptionId()
     {
@@ -54,22 +54,26 @@ public class RewardOptions
         this.rewardDescription = rewardDescription;
     }
 
-    public byte getRewardPicture()
+    public String getRewardPicture()
     {
         return rewardPicture;
     }
 
-    public void setRewardPicture(byte rewardPicture)
+    public void setRewardPicture(String rewardPicture)
     {
         this.rewardPicture = rewardPicture;
     }
 
-    public RewardOptions(int rewardOptionId, String rewardType, BigDecimal rewardCost, String rewardDescription, byte rewardPicture)
+    public RewardOptions(int rewardOptionId, String rewardType, BigDecimal rewardCost, String rewardDescription, String rewardPicture)
     {
         this.rewardOptionId = rewardOptionId;
         this.rewardType = rewardType;
         this.rewardCost = rewardCost;
         this.rewardDescription = rewardDescription;
         this.rewardPicture = rewardPicture;
+    }
+
+    public RewardOptions()
+    {
     }
 }

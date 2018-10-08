@@ -5,47 +5,47 @@
     <title>Be Good Bank</title>
 
     <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/newchild.css">
     <script src="/assets/lib/jquery/jquery.min.js"></script>
     <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
 
 </head>
 <body class="bg-primary">
 <div class="container">
-    <div class="jumbotron">
 
             <h1 class="text-center"><b>The Be GOOD Bank!</b></h1>
             <h4 class="text-center"> It pays to be GOOD</h4>
 
             <div class="text-center">
-                <img src="assets/images/kid.jpg" alt="kid" title="kid" height="400" width="600"class="rounded-circle" />
+                <img src="assets/images/kid.jpg" alt="kid" title="kid" height="300" class="rounded-circle" />
             </div>
 
 
         <form action="@routes.ChildController.postNewChild" method="POST">
             @helper.CSRF.formField
-            <h4 class="text-center"> Add New Child</h4>
+            <h4  class="test text-center"> Add New Child</h4>
 
             <br>
-            <label for="FirstName">Child First Name:</label>
+            <label class="test2" for="FirstName">Child First Name:</label>
             <input type="text" name="FirstName" id="firstname">
             <br>
             <br>
-            <label for="LastName">Child Last Name:</label>
+            <label class="test2"for="LastName">Child Last Name:</label>
             <input type="text" name="LastName" id="lastname">
 
             <br>
             <br>
 
-            <label for="FirstName">Guardian First Name:</label>
+            <label class="test2" for="FirstName">Guardian First Name:</label>
             <input type="text" name="GuardianFirstName" id="Guardianfirstname">
             <br>
             <br>
-            <label for="LastName">Guardian Last Name:</label>
+            <label class="test2" for="LastName">Guardian Last Name:</label>
             <input type="text" name="GuardianLastName" id="Guardianlastname">
 
             <br>
             <br>
-            <label for="RelationshipToChild">Relationship To Child:</label>
+            <label class="test2" for="RelationshipToChild">Relationship To Child:</label>
             <input type="text" name="RelationshipToChild" id="RelationshipToChild">
 
 
@@ -58,7 +58,7 @@
                 </div>
             </div>
         </form>
-        <a href="@routes.ChildController.getChildDetails">Child Details Page</a>
+        <a class="test2" href="@routes.ChildController.getChildDetails">Child Details Page</a>
         </form>
     </div>
 </div>

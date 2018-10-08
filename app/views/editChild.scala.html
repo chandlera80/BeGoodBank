@@ -6,6 +6,7 @@
     <title>Edit Child</title>
 
     <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/editchild.css">
     <script src="/assets/lib/jquery/jquery.min.js"></script>
     <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
 
@@ -13,67 +14,77 @@
 
 <body class="bg-primary">
 <div class="container">
-<div class="jumbotron">
-<h2>Edit Child Information</h2>
-    <br>
-<form method="POST" enctype="multipart/form-data">
-    @helper.CSRF.formField
-    <div class="row">
-        <div class="col-6">
+        <h2 class= "text-center">Edit Child Information</h2>
+        <br>
+        <form method="POST" enctype="multipart/form-data">
+            @helper.CSRF.formField
             <div class="row">
                 <div class="col-6">
-                    <div class="form-group">
-                        <label for="firstname">Child First Name: </label>
-                        <input type="text" class="form-control" id="firstname" name="firstname" value="@child.getFirstName">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label  class="test2" for="firstname">Child First Name: </label>
+                                <input type="text" class="form-control" id="firstname" name="firstname"
+                                       value="@child.getFirstName">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label  class="test2" for="lastname">Child Last Name: </label>
+                                <input type="text" class="form-control" id="lastname" name="lastname"
+                                       value="@child.getLastName">
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-6">
-                    <div class="form-group">
-                        <label for="lastname">Child Last Name: </label>
-                        <input type="text" class="form-control" id="lastname" name="lastname" value="@child.getLastName">
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label  class="test2" for="currentaccountbalance">Current Account Balance: </label>
+                                <input type="text" class="form-control" id="currentaccountbalance"
+                                       name="currentaccountbalance" value="@child.getCurrentAccountBalance">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label  class="test2" for="guardianId">Guardian: </label>
+                            <select class="form-control" id="guardianId" name="guardianId">
+                                @for(guardian <-guardians){
+                                @if(child.getGuardianId == guardian.getGuardianId){
+                                <option value="@child.getGuardianId" selected="selected">@guardian.getFirstName
+                                    @guardian.getLastName
+                                </option>
+                                }else{
+                                <option value="@child.getGuardianId">@guardian.getFirstName @guardian.getLastName
+                                </option>
+
+                                }
+                                }
+                            </select>
+                            <br>
+                            <a href="/accountHistory/@child.getChildId" class="btn btn-warning btn-block">Account History</a>
+
+                            <br>
+                            <a href="@routes.ChildController.getChildChore" class="btn btn-primary btn-block">Add a
+                                chore!</a>
+                            <br>
+                            <form method="POST" action="/deletechild/@child.getChildId">
+
+                                @helper.CSRF.formField
+                                <input type="submit" class="form-control btn-secondary bg-danger"
+                                       value="Delete Child Record">
+                            </form>
+                            <br>
+                            <input type="submit" class="btn btn-warning btn-block" value="Save">
+                        </div>
                     </div>
                 </div>
             </div>
+        </form>
 
-            <div class="row">
-                <div class="col-6">
-                    <div class="form-group">
-                        <label for="currentaccountbalance">Current Account Balance: </label>
-                        <input type="text" class="form-control" id="currentaccountbalance" name="currentaccountbalance" value="@child.getCurrentAccountBalance">
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="form-group">
-                        <label for="guardianid">Guardian Id: </label>
-                        <input class="form-control" type="text" id="guardianid" name="guardianid" value="@child.getGuardianId">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-6">
-                <label for="guardian">Guardian: </label>
-                <select class="form-control" id="guardian" name="guardian">
-                    @for(guardian <-guardians){
-                    @if(child.getGuardianId == guardian.getGuardianId){
-                    <option value="@child.getGuardianId" selected="selected">@guardian.getFirstName @guardian.getLastName</option>
-                    }else{
-                    <option value="@child.getGuardianId">@guardian.getFirstName @guardian.getLastName</option>
-
-                    }
-                    }
-                </select>
-                <br>
-                <a href="@routes.ChildController.getChildChore"class="btn btn-primary btn-block" >Add a chore!</a>
-                <br>
-                <form method="POST" action="/deletechild/@child.getChildId">
-
-                    @helper.CSRF.formField
-                    <input type="submit" class="form-control btn-secondary bg-danger" value = "Delete Child Record">
-                </form>
-                <br>
-    <input type= "submit" class="btn btn-warning btn-block"  value="Save">
-</form>
-</div>
+    </div>
 </div>
 </body>
 </html>

@@ -1,8 +1,11 @@
 package models;
 
+import net.bytebuddy.asm.Advice;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -12,8 +15,19 @@ public class WithdrawalType
     private int withdrawalTypeId;
     private String misbehavior;
     private String misbehaviorDescription;
-    private Date misbehaviorDate;
+    private LocalDate misbehaviorDate;
     private BigDecimal amountWithdrawn;
+    private int childId;
+
+    public int getChildId()
+    {
+        return childId;
+    }
+
+    public void setChildId(int childId)
+    {
+        this.childId = childId;
+    }
 
     public int getWithdrawalTypeId()
     {
@@ -45,12 +59,12 @@ public class WithdrawalType
         this.misbehaviorDescription = misbehaviorDescription;
     }
 
-    public Date getMisbehaviorDate()
+    public LocalDate getMisbehaviorDate()
     {
         return misbehaviorDate;
     }
 
-    public void setMisbehaviorDate(Date misbehaviorDate)
+    public void setMisbehaviorDate(LocalDate misbehaviorDate)
     {
         this.misbehaviorDate = misbehaviorDate;
     }
@@ -66,7 +80,7 @@ public class WithdrawalType
     }
 
 
-    public WithdrawalType(int withdrawalTypeId, String misbehavior, String misbehaviorDescription, Date misbehaviorDate, BigDecimal amountWithdrawn)
+    public WithdrawalType(int withdrawalTypeId, String misbehavior, String misbehaviorDescription, LocalDate misbehaviorDate, BigDecimal amountWithdrawn)
     {
         this.withdrawalTypeId = withdrawalTypeId;
         this.misbehavior = misbehavior;
@@ -74,5 +88,9 @@ public class WithdrawalType
         this.misbehaviorDate = misbehaviorDate;
         this.amountWithdrawn = amountWithdrawn;
 
+    }
+
+    public WithdrawalType()
+    {
     }
 }

@@ -32,8 +32,10 @@ GET     /childdetails            controllers.ChildController.getChildDetails
 POST     /editChild/:childId     controllers.ChildController.postEditChild(childId:Integer)
 GET     /editChild/:childId      controllers.ChildController.getEditChild(childId:Integer)
 
-# POST     /accountHistory/:childId     controllers.AccountHistory.postAccountHistory(childId:Integer)
-GET     /accountHistory/:childId      controllers.AccountHistory.getAccountHistory(childId:Integer)
+ POST     /accountHistory/:childId     controllers.AccountHistoryController.postAccountHistory(childId:Integer)
+GET     /accountHistory/:childId      controllers.AccountHistoryController.getAccountHistory(childId:Integer)
+
+GET     /rewardOptions            controllers.RewardsController.getRewardOptions
 
 
 

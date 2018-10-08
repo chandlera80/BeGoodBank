@@ -6,6 +6,7 @@
     <title>Child Chore</title>
 
     <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/childchore.css">
     <script src="/assets/lib/jquery/jquery.min.js"></script>
     <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
 
@@ -13,27 +14,24 @@
 
 <body class="bg-primary">>
 <div class="container-fluid">
-    <div class="jumbotron">
         <h2 class="text-center">Let's get to WORK!</h2>
         <br>
-        <div class="text-center">
-            <img src="assets/images/kidchores.jpg" alt="kidchores" title="kidchores" height="200" width="350"
-                 class="rounded-circle"/>
-            <form method="POST" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data">
+        <div>
                 @helper.CSRF.formField
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-4">
                         <div class="row">
-                            <label for="dateassigned">Assigned Date: </label>
-                            <input type="date" class="form-control" id="dateassigned" name="dateassigned">
+                            <label class="test2" for="dateassigned">Date Assigned: </label>
+                            <input type="date" class="form-control" id="dateassigned" name="dateassigned" value="2018-10-12">
                         </div>
                     </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="col-4">
-                        <label for="chores">Assigned Chore: </label>
-                        <select class="form-control" id="chores" name="chores">
+                        <label class="test2" for="choreId">Assigned Chore: </label>
+                        <select class="form-control" id="choreId" name="choreId">
                             @for(chore <-chores){
 
                             <option value="@chore.getChoreId">@chore.getChoreName</option>
@@ -41,24 +39,24 @@
                         </select>
                     </div>
                 </div>
-            </form>
         </div>
         <br>
         <div class="row">
             <div class="col-8">
                 <p> Did your kiddo finish this task?</p>
-                <input type="checkbox" name="taskCompletion"
+                <input type="radio" name="taskCompletion"
                        value="Yes" checked="checked"/> Yes they did!
-                <input type="checkbox" name="taskCompletion"
+                <input type="radio" name="taskCompletion"
                        value="No"/> No, they didn't..
-                <br>
 
+                <br>
                 <br>
 
                 <div class="row">
 
-                    <label for="childName">Name of Child: </label>
-                    <select class="form-control" id="childName" name="childName">
+                    <div class="col-2">
+                    <label class="test2" for="childId">Name of Child: </label>
+                    <select class="form-control" id="childId" name="childId">
                         @for(child <-children){
 
                         <option value="@child.getChildId">@child.getFirstName @child.getLastName</option>
@@ -66,24 +64,24 @@
                         }
                     </select>
                 </div>
-                <div class="row">
-                    <div class="col-8">
+
+                    <div class="col-4">
                         <br>
                         <br>
                         <a href="@routes.ChildController.getChildDetails" class="btn btn-warning btn-block">Child
                             Details Page</a>
                         <br>
                         <br>
-                        <div class="col-8">
+                        <div class="col-6">
                             <input type="submit" class="btn btn-info btn-block" value="Save">
                         </div>
                     </div>
                 </div>
-                </form>
+
             </div>
         </div>
+    </form>
     </div>
-</div>
 </body>
 </html>
 

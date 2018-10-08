@@ -106,17 +106,19 @@ public class ChildController extends Controller
         DynamicForm form = formFactory.form().bindFromRequest();
         String firstname = form.get("firstname");
         String lastname = form.get("lastname");
-        BigDecimal currentAccountBalance = new BigDecimal(form.get("currentAccountBalance"));
+        BigDecimal currentAccountBalance = new BigDecimal(form.get("currentaccountbalance"));
         Integer guardianId = Integer.parseInt(form.get("guardianId"));
-        String guardianFirstName = form.get("guardianFirstName");
-        String guardianLastName = form.get("guardianLastName");
-        String relationshipToChild = form.get("relationshipToChild");
+
+
 
 
         child.setFirstName(firstname);
         child.setLastName(lastname);
         child.setCurrentAccountBalance(currentAccountBalance);
         child.setGuardianId(guardianId);
+
+
+
 
         return ok("Saved");
     }
@@ -148,20 +150,36 @@ public class ChildController extends Controller
         List<Chores> choreNames = jpaApi.em().createQuery(choreNameSQL, Chores.class).getResultList();
 
         DynamicForm form = formFactory.form().bindFromRequest();
-        LocalDate dateAssigned = LocalDate.parse(form.get("dateAssigned"));
-        String taskCompletion = form.get ("");
+        LocalDate dateAssigned = LocalDate.parse(form.get("dateassigned"));
+        int choreId = Integer.parseInt(form.get("choreId"));
+        String taskCompletion = form.get("taskCompletion");
+        int childId = Integer.parseInt(form.get("childId"));
 
 
         ChildChore childchore = new ChildChore();
         childchore.setDateAssigned(dateAssigned);
-        childchore.getChildChoreId();
-        childchore.getChildId();
-        childchore.getChoreId();
+        childchore.setChildId(childId);
+        childchore.setChoreId(choreId);
+        if (taskCompletion.equalsIgnoreCase("yes"))
+        {
+            childchore.setTaskCompletion(true);
+        }
+        else
+        {
+            childchore.setTaskCompletion(false);
+        }
 
-        jpaApi.em().persist(childchore);
 
-        return ok("Saved");
-    }
+        jpaApi.em().
+
+    persist(childchore);
+
+        return
+
+    ok("Saved");
+
+}
+
 
     @Transactional
     public Result getDeleteChild(int childId)

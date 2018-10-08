@@ -6,38 +6,47 @@
     <title>Edit Child</title>
 
     <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/accountHistory.css">
     <script src="/assets/lib/jquery/jquery.min.js"></script>
     <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
 
+
 </head>
 
-<body class="bg-primary">
+<body>
 <div class="container">
-    <div class="jumbotron">
-        <h2>Account History and Edit Page</h2>
-        <br>
-        <form method="POST" enctype="multipart/form-data">
-            @helper.CSRF.formField
-            <div class="row">
-                <div class="col-6">
-                    <div class="row">
+    <h2 class="text-center">Account History and Edit Page</h2>
+    <br>
+    <form method="POST" enctype="multipart/form-data">
+        @helper.CSRF.formField
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-6">
                         <div class="col-6">
                             <div class="form-group">
-                                <table>
-                                    <tr>
-                                        <th>Good Deeds:</th>
-                                    </tr>
-                                    @for(goodDeed <- goodDeeds){
-                                    <tr>
-                                        <td>@goodDeed.getGoodDeed</td>
-                                    </tr>
-                                    }
-                                </table>
+                                <p class="test">Good Deed:</p>
+                                <select name="goodDeed">
+                                    <option value="N/A">N/A
+                                    <option value="Worked cooperatively with others">worked cooperatively with others
+                                    </option>
+                                    <option value="Finished homework on time">finished homework on time</option>
+                                    <option value="Showed good character at school or home">Showed good character at
+                                        school
+                                        or home
+                                    </option>
+                                    <option value="Showed excellent listening skills">Showed excellent listening skills
+                                    </option>
+                                    <option value="Finished assigned chores correctly in a timely manner">Finished
+                                        assigned
+                                        chores correctly in a timely manner
+                                    </option>
+                                </select>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-8">
                             <div class="form-group">
-                                <label for="gooddeeddescription">Good Deed Description: </label>
+                                <label class="test" for="gooddeeddescription">Good Deed Description: </label>
                                 <input type="text" class="form-control" id="gooddeeddescription"
                                        name="gooddeeddescription">
 
@@ -46,59 +55,82 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-4">
                             <div class="form-group">
-                                <label for="gooddeeddate">Date of Deed: </label>
+                                <label class="test" for="gooddeeddate">Date of Deed: </label>
                                 <input type="date" class="form-control" id="gooddeeddate" name="gooddeeddate">
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <table>
-                                    <tr>
-                                        <th>Misbehavior:</th>
-                                    </tr>
-                                    @for(misbehavior <- misbehaviors){
-                                    <tr>
-                                        <td>@misbehavior.getMisbehavior()</td>
-                                    </tr>
-                                    }
-                                </table>
+                        <div class="row">
+                        <div class="col-4">
+
+                                <p class="test">Misbehavior:</p>
+                                <select name="misbehavior">
+                                    <option value="N/A">N/A
+                                    <option value="Could not keep hands and feet to themselves">Could not keep hands and
+                                        feet to themselves
+                                    </option>
+                                    <option value="not completing school work">not completing school work</option>
+                                    <option value="Showing attitude or negativity at school or home">Showing attitude or
+                                        negativity at school or home
+                                    </option>
+                                    <option value="Not listening or following directions">Not listening or following
+                                        directions
+                                    </option>
+                                    <option value="Not finishing assigned chores correctly or in a timely manner">Not
+                                        finishing assigned chores correctly or in a timely manner
+
+                                    </option>
+                                </select>
                             </div>
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="form-group">
+                                        <label class="test" for="misbehaviordescription">Good Deed Description: </label>
+                                        <input type="text" class="form-control" id="misbehaviordescription"
+                                               name="misbehaviordescription">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-6">
-                            <label for="misbehaviordescription">Misbehavior Description: </label>
-                            <select class="form-control" id="misbehaviordescription"
-                                    name="misbehaviordescription"></select>
+                            <div class="form-group">
+                                <label class="test" for="misbehaviordate">Date of Misbehavior: </label>
+                                <input type="date" class="form-control" id="misbehaviordate" name="misbehaviordate">
+                            </div>
                         </div>
                     </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="test" for="currentAccountBalance">Current Account Balance: </label>
+                            <input type="text" class="form-control" id="currentAccountBalance"
+                                   name="currentAccountBalance"
+                                   value="@child.getCurrentAccountBalance">
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
-            <div class="row">
-                <div class="col-6">
+
+            <div class="col-8">
+                <div class="col-4">
+
                     <div class="form-group">
-                        <label for="misbehaviordate">Date of Misbehavior: </label>
-                        <input type="date" class="form-control" id="misbehaviordate" name="misbehaviordate">
+                        <input type="submit" class="btn btn-warning btn-block" value="Save">
+                        <br>
+                        <a href="@routes.RewardsController.getRewardOptions" class="btn btn-primary btn-block">Reward
+                            Options Page</a>
                     </div>
                 </div>
             </div>
-            <div class="col-2">
-                <div class="form-group">
-                    <label for="currentAccountBalance">Current Account Balance: </label>
-                    <input type="text" class="form-control" id="currentAccountBalance" name="currentAccountBalance"
-                           value="@child.getCurrentAccountBalance">
-                </div>
-            </div>
-        </form>
-    </div>
-    <br>
-    <br>
-</div>
-<input type="submit" class="btn btn-warning btn-block" value="Save">
-
-</div>
+        </div>
+    </form>
 </div>
 </body>
 </html>

@@ -17,6 +17,18 @@ import java.math.BigDecimal;
         private String guardianLastName;
         private String relationshipToChild;
 
+        public ChildDetail(int childId, String firstName, String lastName, BigDecimal currentAccountBalance, int guardianId, String guardianFirstName, String guardianLastName, String relationshipToChild)
+        {
+            this.childId = childId;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.currentAccountBalance = currentAccountBalance;
+            this.guardianId = guardianId;
+            this.guardianFirstName = guardianFirstName;
+            this.guardianLastName = guardianLastName;
+            this.relationshipToChild = relationshipToChild;
+        }
+
         public int getChildId()
         {
             return childId;

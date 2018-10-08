@@ -3,6 +3,7 @@ package models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -12,8 +13,19 @@ public class DepositType
     private int depositTypeId;
     private String goodDeed;
     private String goodDeedDescription;
-    private Date dateOfDeed;
-    private BigDecimal amountDesposited;
+    private LocalDate goodDeedDate;
+    private BigDecimal amountDeposited;
+    private int childId;
+
+    public int getChildId()
+    {
+        return childId;
+    }
+
+    public void setChildId(int childId)
+    {
+        this.childId = childId;
+    }
 
     public int getDepositTypeId()
     {
@@ -45,24 +57,24 @@ public class DepositType
         this.goodDeedDescription = goodDeedDescription;
     }
 
-    public Date getDateOfDeed()
+    public LocalDate getGoodDeedDate()
     {
-        return dateOfDeed;
+        return goodDeedDate;
     }
 
-    public void setDateOfDeed(Date dateOfDeed)
+    public void setGoodDeedDate(LocalDate dateOfDeed)
     {
-        this.dateOfDeed = dateOfDeed;
+        this.goodDeedDate = dateOfDeed;
     }
 
-    public BigDecimal getAmountDesposited()
+    public BigDecimal getAmountDeposited()
     {
-        return amountDesposited;
+        return amountDeposited;
     }
 
-    public void setAmountDesposited(BigDecimal amountDesposited)
+    public void setAmountDeposited(BigDecimal amountDeposited)
     {
-        this.amountDesposited = amountDesposited;
+        this.amountDeposited = amountDeposited;
     }
 
     }
