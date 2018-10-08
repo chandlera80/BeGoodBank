@@ -12,76 +12,80 @@
 
 </head>
 
-<body class="bg-primary">>
+<body class="bg-primary">
 <div class="container-fluid">
-        <h2 class="text-center">Let's get to WORK!</h2>
-        <br>
+    <h2 class="text-center">Let's get to WORK!</h2>
+    <br>
     <form method="POST" enctype="multipart/form-data">
         <div>
-                @helper.CSRF.formField
-                <div class="row">
-                    <div class="col-4">
-                        <div class="row">
-                            <label class="test2" for="dateassigned">Date Assigned: </label>
-                            <input type="date" class="form-control" id="dateassigned" name="dateassigned" value="2018-10-12">
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-4">
-                        <label class="test2" for="choreId">Assigned Chore: </label>
-                        <select class="form-control" id="choreId" name="choreId">
-                            @for(chore <-chores){
-
-                            <option value="@chore.getChoreId">@chore.getChoreName</option>
-                            }
-                        </select>
-                    </div>
-                </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-8">
-                <p> Did your kiddo finish this task?</p>
-                <input type="radio" name="taskCompletion"
-                       value="Yes" checked="checked"/> Yes they did!
-                <input type="radio" name="taskCompletion"
-                       value="No"/> No, they didn't..
-
-                <br>
-                <br>
-
-                <div class="row">
-
-                    <div class="col-2">
-                    <label class="test2" for="childId">Name of Child: </label>
-                    <select class="form-control" id="childId" name="childId">
-                        @for(child <-children){
-
-                        <option value="@child.getChildId">@child.getFirstName @child.getLastName</option>
-
-                        }
-                    </select>
-                </div>
-
-                    <div class="col-4">
-                        <br>
-                        <br>
-                        <a href="@routes.ChildController.getChildDetails" class="btn btn-warning btn-block">Child
-                            Details Page</a>
-                        <br>
-                        <br>
+            @helper.CSRF.formField
+            <div class="row">
+                <div class="col-6">
+                    <div class="row">
                         <div class="col-6">
-                            <input type="submit" class="btn btn-info btn-block" value="Save">
+                            <div class="form-group">
+                                <label class="test2" for="dateassigned">Date Assigned: </label>
+                                <input type="date" class="form-control" id="dateassigned" name="dateassigned"
+                                       value="2018-10-12">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-6">
+                            <label class="test2" for="choreId">Assigned Chore: </label>
+                            <select class="form-control" id="choreId" name="choreId">
+                                @for(chore <-chores){
+
+                                <option value="@chore.getChoreId">@chore.getChoreName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label class="test2" for="childId">Name of Child: </label>
+                            <select class="form-control" id="childId" name="childId">
+                                @for(child <-children){
+
+                                <option value="@child.getChildId">@child.getFirstName @child.getLastName</option>
+
+                                }
+                            </select>
+                        </div>
+                        <br>
+                        <div class="col-12">
+                            <p> Did your kiddo finish this task?</p>
+                            <input type="radio" name="taskCompletion"
+                                   value="Yes" checked="checked"/> Yes they did!
+                            <input type="radio" name="taskCompletion"
+                                   value="No"/> No, they didn't..
+                        </div>
+
+                        <div class="col-5">
+
+                            <a href="@routes.ChildController.getChildDetails" class="btn btn-warning btn-block">Child
+                                Details Page</a>
+
+                            <br>
+
+                            <input type="submit" class="btn btn-info btn-secondary" value="Save">
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </form>
-    </div>
+    <br>
+</div>
+<div class="row">
+
+
+    <div class="col-4"></div>
+    <br>
+    <br>
+
+</div>
 </body>
 </html>
 
