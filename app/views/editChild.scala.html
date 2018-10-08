@@ -35,9 +35,23 @@
                                        value="@child.getLastName">
                             </div>
                         </div>
+                        <div class="col-6">
+                        <label  class="test2" for="guardianId">Guardian: </label>
+                        <select class="form-control" id="guardianId" name="guardianId">
+                            @for(guardian <-guardians){
+                            @if(child.getGuardianId == guardian.getGuardianId){
+                            <option value="@child.getGuardianId" selected="selected">@guardian.getFirstName
+                                @guardian.getLastName
+                            </option>
+                            }else{
+                            <option value="@child.getGuardianId">@guardian.getFirstName @guardian.getLastName
+                            </option>
+
+                            }
+                            }
+                        </select>
                     </div>
 
-                    <div class="row">
                         <div class="col-6">
                             <div class="form-group">
                                 <label  class="test2" for="currentaccountbalance">Current Account Balance: </label>
@@ -47,23 +61,11 @@
                         </div>
 
                     </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <label  class="test2" for="guardianId">Guardian: </label>
-                            <select class="form-control" id="guardianId" name="guardianId">
-                                @for(guardian <-guardians){
-                                @if(child.getGuardianId == guardian.getGuardianId){
-                                <option value="@child.getGuardianId" selected="selected">@guardian.getFirstName
-                                    @guardian.getLastName
-                                </option>
-                                }else{
-                                <option value="@child.getGuardianId">@guardian.getFirstName @guardian.getLastName
-                                </option>
 
-                                }
-                                }
-                            </select>
+
                             <br>
+                    <div class="col-6">
+                        <div class="form-group">
                             <a href="/accountHistory/@child.getChildId" class="btn btn-warning btn-block">Account History</a>
 
                             <br>

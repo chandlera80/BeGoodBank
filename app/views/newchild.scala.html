@@ -13,53 +13,61 @@
 <body class="bg-primary">
 <div class="container">
 
-            <h1 class="text-center"><b>The Be GOOD Bank!</b></h1>
-            <h4 class="text-center"> It pays to be GOOD</h4>
+    <h1 class="text-center"><b>The Be GOOD Bank!</b></h1>
+    <h4 class="text-center"> It pays to be GOOD</h4>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label class="test2" for="FirstName">Child First Name:</label>
+                <input type="text" name="FirstName" id="firstname">
+            </div>
+            <div class="form-group">
+                <label class="test2" for="LastName">Child Last Name:</label>
+                <input type="text" name="LastName" id="lastname">
+            </div>
+            <br>
+            <input type="submit" class="btn btn-warning btn-secondary"
+                value="Save">
+        </div>
+        <div class="col-4">
 
             <div class="text-center">
-                <img src="assets/images/kid.jpg" alt="kid" title="kid" height="300" class="rounded-circle" />
-            </div>
+                <img src="assets/images/kid.jpg" alt="kid" title="kid" height="300" class="rounded-circle"/>
+                <br>
+                <h4 class="test text-center"> Add New Child</h4>
+                <br>
 
+            </div>
+        </div>
+        <div class="col-4 text-right">
+            <div class="form-group">
+
+                <label class="test2" for="FirstName">Guardian First Name:</label>
+                <input type="text" name="GuardianFirstName" id="Guardianfirstname">
+            </div>
+            <div class="form-group">
+                <label class="test2" for="LastName">Guardian Last Name:</label>
+                <input type="text" name="GuardianLastName" id="Guardianlastname">
+            </div>
+            <label class="test2" for="RelationshipToChild">Relationship To Child:</label>
+            <input type="text" name="RelationshipToChild" id="RelationshipToChild">
+        </div>
 
         <form action="@routes.ChildController.postNewChild" method="POST">
             @helper.CSRF.formField
-            <h4  class="test text-center"> Add New Child</h4>
 
             <br>
-            <label class="test2" for="FirstName">Child First Name:</label>
-            <input type="text" name="FirstName" id="firstname">
-            <br>
-            <br>
-            <label class="test2"for="LastName">Child Last Name:</label>
-            <input type="text" name="LastName" id="lastname">
+            <div class="row ">
+                <div class="col-4"></div>
+                <div class="col-4"></div>
+                <div class="col-4">
 
-            <br>
-            <br>
-
-            <label class="test2" for="FirstName">Guardian First Name:</label>
-            <input type="text" name="GuardianFirstName" id="Guardianfirstname">
-            <br>
-            <br>
-            <label class="test2" for="LastName">Guardian Last Name:</label>
-            <input type="text" name="GuardianLastName" id="Guardianlastname">
-
-            <br>
-            <br>
-            <label class="test2" for="RelationshipToChild">Relationship To Child:</label>
-            <input type="text" name="RelationshipToChild" id="RelationshipToChild">
-
-
-            <br>
-            <br>
-            <div class="row">
-                <div class="col-5"></div>
-                <div class="col-2">
-            <input type="submit" class="btn btn-warning btn-block" value="Save">
                 </div>
+
             </div>
         </form>
         <a class="test2" href="@routes.ChildController.getChildDetails">Child Details Page</a>
-        </form>
+
     </div>
 </div>
 </body>

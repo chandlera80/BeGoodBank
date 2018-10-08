@@ -20,116 +20,116 @@
     <form method="POST" enctype="multipart/form-data">
         @helper.CSRF.formField
         <div class="row">
-            <div class="col-12">
+            <div class="col-4 form-group">
                 <div class="row">
-                    <div class="col-6">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <p class="test">Good Deed:</p>
-                                <select name="goodDeed">
-                                    <option value="N/A">N/A
-                                    <option value="Worked cooperatively with others">worked cooperatively with others
-                                    </option>
-                                    <option value="Finished homework on time">finished homework on time</option>
-                                    <option value="Showed good character at school or home">Showed good character at
-                                        school
-                                        or home
-                                    </option>
-                                    <option value="Showed excellent listening skills">Showed excellent listening skills
-                                    </option>
-                                    <option value="Finished assigned chores correctly in a timely manner">Finished
-                                        assigned
-                                        chores correctly in a timely manner
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-8">
-                            <div class="form-group">
-                                <label class="test" for="gooddeeddescription">Good Deed Description: </label>
-                                <input type="text" class="form-control" id="gooddeeddescription"
-                                       name="gooddeeddescription">
+                        <p class="test">Good Deed:</p>
+                        <select class="form-control" name="goodDeed">
+                            <option value="N/A">N/A
+                            <option value="Worked cooperatively with others">worked cooperatively with others
+                            </option>
+                            <option value="Finished homework on time">finished homework on time</option>
+                            <option value="Showed good character at school or home">Showed good character at
+                                school
+                                or home
+                            </option>
+                            <option value="Showed excellent listening skills">Showed excellent listening skills
+                            </option>
+                            <option value="Finished assigned chores correctly in a timely manner">Finished
+                                assigned
+                                chores correctly in a timely manner
+                            </option>
+                        </select>
 
-                            </div>
-                        </div>
-                    </div>
+                        <p class="test">Misbehavior:</p>
+                        <select class="form-control" name="misbehavior">
+                            <option value="N/A">N/A
+                            <option value="Could not keep hands and feet to themselves">Could not keep hands and
+                                feet to themselves
+                            </option>
+                            <option value="not completing school work">not completing school work</option>
+                            <option value="Showing attitude or negativity at school or home">Showing attitude or
+                                negativity at school or home
+                            </option>
+                            <option value="Not listening or following directions">Not listening or following
+                                directions
+                            </option>
+                            <option value="Not finishing assigned chores correctly or in a timely manner">Not
+                                finishing assigned chores correctly or in a timely manner
 
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label class="test" for="gooddeeddate">Date of Deed: </label>
-                                <input type="date" class="form-control" id="gooddeeddate" name="gooddeeddate">
-                            </div>
-                        </div>
-                        <div class="row">
-                        <div class="col-4">
-
-                                <p class="test">Misbehavior:</p>
-                                <select name="misbehavior">
-                                    <option value="N/A">N/A
-                                    <option value="Could not keep hands and feet to themselves">Could not keep hands and
-                                        feet to themselves
-                                    </option>
-                                    <option value="not completing school work">not completing school work</option>
-                                    <option value="Showing attitude or negativity at school or home">Showing attitude or
-                                        negativity at school or home
-                                    </option>
-                                    <option value="Not listening or following directions">Not listening or following
-                                        directions
-                                    </option>
-                                    <option value="Not finishing assigned chores correctly or in a timely manner">Not
-                                        finishing assigned chores correctly or in a timely manner
-
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="row">
-                                <div class="col-8">
-                                    <div class="form-group">
-                                        <label class="test" for="misbehaviordescription">Good Deed Description: </label>
-                                        <input type="text" class="form-control" id="misbehaviordescription"
-                                               name="misbehaviordescription">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label class="test" for="misbehaviordate">Date of Misbehavior: </label>
-                                <input type="date" class="form-control" id="misbehaviordate" name="misbehaviordate">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="form-group">
-                            <label class="test" for="currentAccountBalance">Current Account Balance: </label>
-                            <input type="text" class="form-control" id="currentAccountBalance"
-                                   name="currentAccountBalance"
-                                   value="@child.getCurrentAccountBalance">
-                        </div>
-                    </div>
-
+                            </option>
+                        </select>
                 </div>
-
             </div>
 
-            <div class="col-8">
-                <div class="col-4">
 
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-warning btn-block" value="Save">
-                        <br>
-                        <a href="@routes.RewardsController.getRewardOptions" class="btn btn-primary btn-block">Reward
-                            Options Page</a>
-                    </div>
+
+    <div class="col-4">
+        <div class="form-group">
+            <label class="test" for="gooddeeddescription">Good Deed Description: </label>
+            <input type="text" class="form-control" id="gooddeeddescription"
+                   name="gooddeeddescription">
+        </div>
+        <div class="form-group">
+            <label class="test" for="misbehaviordescription">Misbehavior Description: </label>
+            <input type="text" class="form-control" id="misbehaviordescription"
+                   name="misbehaviordescription">
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="form-group">
+            <label class="test" for="gooddeeddate">Date of Deed: </label>
+            <input type="date" class="form-control" id="gooddeeddate" name="gooddeeddate">
+        </div>
+        <div class="form-group">
+            <label class="test" for="misbehaviordate">Date of Misbehavior: </label>
+            <input type="date" class="form-control" id="misbehaviordate" name="misbehaviordate">
+        </div>
+    </div>
+</div>
+<div class="col-3">
+
+</div>
+
+<div class="row">
+    <div class="col-4">
+
+
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-8">
+
                 </div>
             </div>
         </div>
+
+        <div class="col-6">
+
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="form-group">
+            <label class="test" for="currentAccountBalance">Current Account Balance: </label>
+            <input type="text" class="form-control" id="currentAccountBalance"
+                   name="currentAccountBalance"
+                   value="@child.getCurrentAccountBalance">
+        </div>
+    </div>
+
+</div>
+
+<div class="col-8">
+    <div class="col-4">
+
+        <div class="form-group">
+            <input type="submit" class="btn btn-warning btn-block" value="Save">
+            <br>
+            <a href="@routes.RewardsController.getRewardOptions" class="btn btn-primary btn-block">Reward
+                Options Page</a>
+        </div>
+    </div>
+</div>
     </form>
 </div>
 </body>
