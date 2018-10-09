@@ -16,6 +16,8 @@
     <h1 class="text-center"><b>The Be GOOD Bank!</b></h1>
     <h4 class="text-center"> It pays to be GOOD</h4>
     <div class="row">
+        <form action="@routes.ChildController.postNewChild" method="POST">
+            @helper.CSRF.formField
         <div class="col-4">
             <div class="form-group">
                 <label class="test2" for="FirstName">Child First Name:</label>
@@ -27,7 +29,7 @@
             </div>
             <br>
             <input type="submit" class="btn btn-warning btn-secondary"
-                value="Save">
+                   value="Save">
         </div>
         <div class="col-4">
 
@@ -53,22 +55,11 @@
             <input type="text" name="RelationshipToChild" id="RelationshipToChild">
         </div>
 
-        <form action="@routes.ChildController.postNewChild" method="POST">
-            @helper.CSRF.formField
-
-            <br>
-            <div class="row ">
-                <div class="col-4"></div>
-                <div class="col-4"></div>
-                <div class="col-4">
-
-                </div>
-
-            </div>
         </form>
-        <a class="test2" href="@routes.ChildController.getChildDetails">Child Details Page</a>
-
     </div>
+
+    <a class="test2" href="@routes.ChildController.getChildDetails">Child Details Page</a>
+
 </div>
 </body>
 </html>
