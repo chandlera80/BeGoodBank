@@ -193,6 +193,18 @@ public class ChildController extends Controller
         return redirect("/listchildren");
     }
 
+    @Transactional(readOnly = true)
+    public Result getChildBehavior(int childId)
+    {
+        String depositSQL = "SELECT d FROM DepositType d WHERE childId = :childId";
+        List<DepositType> depositTypes = jpaApi.em().createQuery(depositSQL, DepositType.class).setParameter("childId", childId).getResultList();
+
+        String withdrawalSQL = "SELECT w FROM WithdrawalType w WHERE childId = :childId";
+        List<WithdrawalType> withdrawalTypes = jpaApi.em().createQuery(withdrawalSQL, WithdrawalType.class).setParameter("childId", childId).getResultList();
+
+
+        return ok(views.html.childBehavior.render(depositTypes,withdrawalTypes));
+    }
 }
 
 

@@ -1,0 +1,60 @@
+@(depositTypes : List [DepositType], withdrawalTypes : List [WithdrawalType])
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Child Behavior Page</title>
+
+    <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/childBehavior.css">
+    <script src="/assets/lib/jquery/jquery.min.js"></script>
+    <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <h4 class="text-center">Rap Sheet</h4>
+    <h2 class="text-center">Were they naughty...or nice?</h2>
+</div>
+<table class="table table-striped">
+    <tr>
+        <th class="test text-center">Good Deed</th>
+        <th class="test text-center">Good Deed Description</th>
+        <th class="test text-center">Good Deed Date</th>
+
+    </tr>
+    @for(depositType <-depositTypes){
+    <tr>
+
+        <td class="text-center"> @depositType.getGoodDeed</td>
+        <td class="text-center"> @depositType.getGoodDeedDescription</td>
+        <td class="text-center"> @depositType.getGoodDeedDate</td>
+    </tr>
+    }
+</table>
+<div class="row">
+    <table class="table table-striped">
+        <tr>
+            <th class="test text-center">Misbehavior</th>
+            <th class="test text-center">Misbehavior Description</th>
+            <th class="test text-center">Misbehavior Date</th>
+
+        </tr>
+        @for(withdrawalType <-withdrawalTypes){
+        <tr>
+
+            <td class="text-center"> @withdrawalType.getMisbehavior</td>
+            <td class="text-center"> @withdrawalType.getMisbehaviorDescription</td>
+            <td class="text-center"> @withdrawalType.getMisbehaviorDate</td>
+        </tr>
+        }
+    </table>
+</div>
+<div class="row">
+    <div class="col-12 text-center">
+<a href="@routes.RewardsController.getRewardOptions" class="btn btn-primary  btn-secondary ">Reward
+    Options Page</a>
+</div>
+</div>
+</body>
+</html>

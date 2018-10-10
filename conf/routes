@@ -27,6 +27,8 @@ GET     /guardians               controllers.GuardianController.getGuardians
 
 GET     /childdetails            controllers.ChildController.getChildDetails
 
+GET     /childBehavior/:childId  controllers.ChildController.getChildBehavior(childId:Integer)
+
 
 
 POST     /editChild/:childId     controllers.ChildController.postEditChild(childId:Integer)
